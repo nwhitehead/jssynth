@@ -69,9 +69,15 @@ var newDigits = function (x, y, n) {
     res.setDigits = function (v) {
         var i;
         for (i = 0; i < n; i++) {
-            res.digits[i].setDigitImage(3);
+            res.digits[n - i - 1].setDigitImage(v % 10);
+            v = Math.floor(v / 10);
         }
     };
+    res.elem = $('<div></div>');
+    var i;
+    for (i = 0; i < n; i++) {
+        res.elem.append(res.digits[i]);
+    }
     return res;
 };
 
@@ -87,4 +93,8 @@ var newLabel = function (txt, ox, oy) {
     $new.css('left', ox + 'px');
     $new.css('top', oy + 'px');
     return $new;
+};
+
+jQuery.fn.periodic = function (func) {
+    setInterval(func, 250);
 };

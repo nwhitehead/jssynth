@@ -41,7 +41,7 @@ $(document).ready(function() {
     $('#test').getLed("frets", 1, 2).setLedImage(5);
     $('#test').getLed("open", 0, 3).setLedImage(3);
     var digits = newDigits(700, 200, 2);
-//    $('#test').append(digits.elem);
+    $('#test').append(digits.elem);
     var but1 = newButton(600, 200 - 2);
     but1.append(newLabel('I', 33, 7));
     but1.click(function () {
@@ -55,6 +55,9 @@ $(document).ready(function() {
         console.log("CLICK2");
     });
     $('#test').append(but2);
+    $().periodic(function () {
+        digits.setDigits(g.getBeat());
+    });
 });
 
 </script>

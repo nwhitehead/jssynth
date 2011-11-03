@@ -226,6 +226,9 @@ Synth.Guitar.prototype.syncSong = function () {
     }
 };
 
+Synth.Guitar.prototype.getBeat = function () {
+    return Math.floor(this.time / this.beat_delay);
+};
 
 Synth.Guitar.prototype.generate = function (buf) {
     var i, j;
