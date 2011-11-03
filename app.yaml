@@ -1,0 +1,21 @@
+application: jssynth
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /gfx
+  static_dir: gfx
+- url: /css
+  static_dir: css
+- url: /js
+  static_dir: js
+- url: /
+  static_files: page/index.html
+  upload: page/index.html
+- url: /(.+)
+  static_files: page/\1
+  upload: page/(.+)
+
+builtins:
+- remote_api: on
